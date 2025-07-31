@@ -20,7 +20,8 @@ const Terminal: React.FC = () => {
   const [cardFlipped, setCardFlipped] = useState(false);
   const [isCardHovered, setIsCardHovered] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const terminalRef = useRef<HTMLDivElement>(null);
+  const terminalRef = useRef<HTMLDivElement | null>(null);
+
   const cardRef = useRef<HTMLDivElement>(null);
   const [username, setUsername] = useState<string>(
     localStorage.getItem("username") || ""
