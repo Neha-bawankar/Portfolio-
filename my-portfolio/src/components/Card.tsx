@@ -15,7 +15,7 @@ interface IdCardProps {
   setCardFlipped: (v: boolean) => void;
   isCardHovered: boolean;
   setIsCardHovered: (v: boolean) => void;
-  cardRef: React.RefObject<HTMLDivElement>;
+  cardRef: React.RefObject<HTMLDivElement | null>;
 }
 
 const IdCard: React.FC<IdCardProps> = ({
