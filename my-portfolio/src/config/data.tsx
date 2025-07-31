@@ -454,7 +454,7 @@ export const commands = {
             resume.
           </span>
           <a
-            href="https://drive.google.com/drive/folders/1Lb_ZFisa03is-ZVrei3ABELuLwuzLnnz/edit?usp=sharing"
+            href="https://drive.google.com/file/d/1T3-32Y05fJH8yhh3x0hfQgfKA_qR6kIm/view?usp=drive_link/edit?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
           >
