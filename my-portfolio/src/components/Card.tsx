@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import myProfile from "../assets/profile.jpeg";
 
+
+
 interface IdCardProps {
   cardFlipped: boolean;
   setCardFlipped: (v: boolean) => void;
