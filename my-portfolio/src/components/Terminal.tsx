@@ -23,6 +23,7 @@ const Terminal: React.FC = () => {
   const terminalRef = useRef<HTMLDivElement>(null!);
 
 
+
   const cardRef = useRef<HTMLDivElement>(null);
   const [username, setUsername] = useState<string>(
     localStorage.getItem("username") || ""
