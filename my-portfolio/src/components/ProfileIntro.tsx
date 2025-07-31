@@ -36,7 +36,7 @@ export default function ProfileIntro({ onFinish }: ProfileIntroProps) {
   return (
     <div className="w-full h-screen relative flex flex-col items-center justify-center overflow-hidden bg-black">
       {/* 🔥 Hacker Gradient Layer */}
-     <div className="absolute inset-0 bg-[conic-gradient(at_top,_rgba(0,255,65,0.6),_rgba(0,255,255,0.6),_rgba(255,0,51,0.6),_rgba(127,0,255,0.6),_rgba(0,255,65,0.6))] animate-spin-slow opacity-70"></div>
+      {/*   <div className="absolute inset-0 bg-[conic-gradient(at_top,_rgba(0,255,65,0.6),_rgba(0,255,255,0.6),_rgba(255,0,51,0.6),_rgba(127,0,255,0.6),_rgba(0,255,65,0.6))] animate-spin-slow opacity-70"></div>*/}
 
       {/* 🕶️ Dark Cyber Grid Effect */}
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,255,65,0.15)_1px,transparent_1px),linear-gradient(rgba(0,255,65,0.15)_1px,transparent_1px)] bg-[size:50px_50px] animate-grid-fade"></div>
@@ -46,16 +46,16 @@ export default function ProfileIntro({ onFinish }: ProfileIntroProps) {
 
       {/* Content */}
       <div className="relative z-10 text-center space-y-5 px-4">
-        <h1 className="text-4xl md:text-5xl font-extrabold animate-hacker-text">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-white">
           Hi 👋 I'm <span className="animate-hacker-text">Neha N Bawankar</span> 👾
         </h1>
-        <p className="text-lg md:text-xl font-medium italic animate-hacker-text">
+        <p className="text-lg md:text-xl font-medium italic text-white">
           💡 “Turning ideas into code, and code into experiences.”
         </p>
 
         {showInput && !showWelcome && (
           <div className="mt-6">
-            <p className="text-lg font-semibold mb-3 animate-hacker-text">
+            <p className="text-lg font-semibold mb-3 text-white">
               🚀 Enter your name to unlock the portfolio:
             </p>
             <input
@@ -71,15 +71,15 @@ export default function ProfileIntro({ onFinish }: ProfileIntroProps) {
 
         {showWelcome && (
           <div className="space-y-4">
-            <h1 className="text-4xl font-extrabold animate-hacker-text animate-bounce">
+            <h1 className="text-4xl font-extrabold text-white animate-bounce">
               🎉 Access Granted, {userName}! 🔓
             </h1>
-            <p className="mt-3 font-medium animate-hacker-text">
+            <p className="mt-3 font-medium text-white">
               🌟 Welcome to the code vault.
             </p>
             <button
               onClick={handleOkClick}
-              className="mt-4 px-6 py-2 bg-[#00ff41] text-black font-bold rounded-full shadow-lg hover:bg-[#00cc33] transition"
+              className="mt-4 px-6 py-2 bg-[#00ff41] text-white font-bold rounded-full shadow-lg hover:bg-[#00cc33] transition"
             >
               OK, Let's Go!
             </button>
