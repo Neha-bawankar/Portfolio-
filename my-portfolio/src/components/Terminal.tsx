@@ -20,7 +20,7 @@ const Terminal: React.FC = () => {
   const [cardFlipped, setCardFlipped] = useState(false);
   const [isCardHovered, setIsCardHovered] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const terminalRef = useRef(null as unknown as HTMLDivElement);
+   const terminalRef = useRef<HTMLDivElement>(null!);
 
 
 
