@@ -1,0 +1,69 @@
+
+
+
+/* Existing Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Blinking Cursor */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+.animate-blink {
+  display: inline-block;
+  animation: blink 0.7s infinite;
+}
+
+/* CRT Flicker Animation */
+@keyframes crtFlicker {
+  0% { background: black; opacity: 1; }
+  15% { background: #00ff00; opacity: 0.3; }
+  30% { background: black; opacity: 1; }
+  45% { background: #00ff00; opacity: 0.2; }
+  60% { background: black; opacity: 1; }
+  75% { background: #00ff00; opacity: 0.15; }
+  100% { background: black; opacity: 1; }
+}
+.crt-flicker {
+  animation: crtFlicker 1s linear;
+}
+
+
+body {
+  margin: 0;
+  font-family: monospace;
+}
+
+@layer utilities {
+  .animate-gradient {
+    background-size: 300% 300%;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 15s linear infinite;
+}
+
+/* 🌈 Rainbow text animation */
+@keyframes rainbow {
+  0% { color: #22c55e; }    /* Green */
+  25% { color: #9333ea; }   /* Purple */
+  50% { color: #ef4444; }   /* Red */
+  75% { color: #eab308; }   /* Yellow */
+  100% { color: #3b82f6; }  /* Blue */
+}
+.animate-rainbow-text {
+  animation: rainbow 5s linear infinite;
+}
