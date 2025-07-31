@@ -68,32 +68,34 @@ const Terminal: React.FC = () => {
   }, [history]);
 
   // ✅ Execute commands with validation
-  const executeCommand = async (cmd: string) => {
-    const trimmedCmd = cmd.trim().toLowerCase();
+  // Execute commands
+ const executeCommand = async (cmd: string) => {
+  const trimmedCmd = cmd.trim();
 
-    if (trimmedCmd === "clear") {
-      setHistory([]);
-      return;
-    }
+  if (trimmedCmd === "clear") {
+    setHistory([]);
+    return;
+  }
 
-    setIsLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 500));
+  setIsLoading(true);
+  await new Promise((resolve) => setTimeout(resolve, 500));
 
-    const output = commands[trimmedCmd as keyof typeof commands]?.() || (
-      <div className="text-red-400">
-        Command not found: {cmd}. Type 'help' for available commands.
-      </div>
-    );
+  // ✅ No lowercase conversion, match exact case
+  const output = commands[trimmedCmd as keyof typeof commands]?.() || (
+    <div className="text-red-400">
+      Command not found: {cmd}. Type <span className="text-yellow-400">'help'</span> to see available commands.
+    </div>
+  );
 
-    const newOutput: CommandOutput = {
-      command: cmd,
-      output,
-      timestamp: new Date(),
-    };
+  setHistory((prev) => [
+    ...prev,
+    { command: cmd, output, timestamp: new Date() },
+  ]);
 
-    setHistory((prev) => [...prev, newOutput]);
-    setIsLoading(false);
-  };
+  setIsLoading(false);
+};
+
+    
 
   // Handle input submit
   const handleSubmit = (e: React.FormEvent) => {
