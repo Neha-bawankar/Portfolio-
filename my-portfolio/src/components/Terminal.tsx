@@ -61,14 +61,13 @@ const Terminal: React.FC = () => {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
     }
 
-    // Visitor count logic
     const savedCount = localStorage.getItem("visitorCount");
     const newCount = savedCount ? parseInt(savedCount) + 1 : 1;
     setVisitorCount(newCount);
     localStorage.setItem("visitorCount", newCount.toString());
   }, [history]);
 
-  // Execute commands
+  // ✅ Execute commands with validation
   const executeCommand = async (cmd: string) => {
     const trimmedCmd = cmd.trim().toLowerCase();
 
@@ -80,16 +79,26 @@ const Terminal: React.FC = () => {
     setIsLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 500));
 
-    const output = commands[trimmedCmd as keyof typeof commands]?.() || (
-      <div className="text-red-400">
-        Command not found: {cmd}. Type 'help' for available commands.
-      </div>
-    );
-
-    setHistory((prev) => [
-      ...prev,
-      { command: cmd, output, timestamp: new Date() },
-    ]);
+    if (Object.prototype.hasOwnProperty.call(commands, trimmedCmd)) {
+      const output = commands[trimmedCmd as keyof typeof commands]!();
+      setHistory((prev) => [
+        ...prev,
+        { command: cmd, output, timestamp: new Date() },
+      ]);
+    } else {
+      setHistory((prev) => [
+        ...prev,
+        {
+          command: cmd,
+          output: (
+            <div className="text-red-400">
+              Command not found: {cmd}. Type 'help' for available commands.
+            </div>
+          ),
+          timestamp: new Date(),
+        },
+      ]);
+    }
 
     setIsLoading(false);
   };
@@ -171,7 +180,6 @@ const Terminal: React.FC = () => {
             onLoadedData={() => setLoaderLoading(false)}
           />
 
-          {/* Dark Overlay */}
           <div className="absolute inset-0 bg-black bg-opacity-60 z-10" />
 
           {/* Header */}
@@ -282,7 +290,6 @@ const Terminal: React.FC = () => {
             </div>
           </div>
 
-          {/* Footer Clock */}
           <footer className="fixed bottom-0 left-0 w-full z-30 flex justify-end items-center py-2 pr-4">
             <Clock />
           </footer>
