@@ -79,27 +79,19 @@ const Terminal: React.FC = () => {
     setIsLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 500));
 
-    if (Object.prototype.hasOwnProperty.call(commands, trimmedCmd)) {
-      const output = commands[trimmedCmd as keyof typeof commands]!();
-      setHistory((prev) => [
-        ...prev,
-        { command: cmd, output, timestamp: new Date() },
-      ]);
-    } else {
-      setHistory((prev) => [
-        ...prev,
-        {
-          command: cmd,
-          output: (
-            <div className="text-red-400">
-              Command not found: {cmd}. Type 'help' for available commands.
-            </div>
-          ),
-          timestamp: new Date(),
-        },
-      ]);
-    }
+    const output = commands[trimmedCmd as keyof typeof commands]?.() || (
+      <div className="text-red-400">
+        Command not found: {cmd}. Type 'help' for available commands.
+      </div>
+    );
 
+    const newOutput: CommandOutput = {
+      command: cmd,
+      output,
+      timestamp: new Date(),
+    };
+
+    setHistory((prev) => [...prev, newOutput]);
     setIsLoading(false);
   };
 
