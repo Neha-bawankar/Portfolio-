@@ -19,20 +19,19 @@ const Terminal: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [cardFlipped, setCardFlipped] = useState(false);
   const [isCardHovered, setIsCardHovered] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
-   const terminalRef = useRef<HTMLDivElement>(null!);
 
+  // ✅ Properly typed refs
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const terminalRef = useRef<HTMLDivElement | null>(null);
+  const cardRef = useRef<HTMLDivElement | null>(null);
 
-
-
-  const cardRef = useRef<HTMLDivElement>(null);
   const [username, setUsername] = useState<string>(
     localStorage.getItem("username") || ""
   );
   const [visitorCount, setVisitorCount] = useState<number>(0);
   const [loaderLoading, setLoaderLoading] = useState(true);
 
-  // Terminal welcome message
+  // ✅ Welcome message on load
   useEffect(() => {
     setHistory([
       {
@@ -59,20 +58,19 @@ const Terminal: React.FC = () => {
     ]);
   }, []);
 
-  // Auto scroll terminal & set view counter
+  // ✅ Auto scroll + visitor count
   useEffect(() => {
     if (terminalRef.current) {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
     }
 
-    // Visitor count logic
     const savedCount = localStorage.getItem("visitorCount");
     const newCount = savedCount ? parseInt(savedCount) + 1 : 1;
     setVisitorCount(newCount);
     localStorage.setItem("visitorCount", newCount.toString());
   }, [history]);
 
-  // Execute commands
+  // ✅ Command execution
   const executeCommand = async (cmd: string) => {
     const trimmedCmd = cmd.trim().toLowerCase();
 
@@ -98,7 +96,7 @@ const Terminal: React.FC = () => {
     setIsLoading(false);
   };
 
-  // Handle input submit
+  // ✅ Input submit
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
@@ -109,7 +107,7 @@ const Terminal: React.FC = () => {
     setInput("");
   };
 
-  // Navigate command history
+  // ✅ Command history navigation
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowUp") {
       e.preventDefault();
@@ -136,7 +134,7 @@ const Terminal: React.FC = () => {
     }
   };
 
-  // Clock component
+  // ✅ Clock component
   const Clock = () => {
     const [time, setTime] = useState(new Date());
     useEffect(() => {
@@ -211,7 +209,8 @@ const Terminal: React.FC = () => {
               <div
                 ref={terminalRef}
                 className="h-screen p-4 px-2 overflow-y-auto cursor-text"
-                onClick={focusInput}>
+                onClick={focusInput}
+              >
                 <div className="max-w-6xl mx-auto px-2">
                   <div className="flex items-center gap-2 mb-4 text-gray-500 text-sm lg:text-base">
                     <TerminalIcon size={16} />
@@ -244,17 +243,20 @@ const Terminal: React.FC = () => {
                         <div className="w-1 h-1 bg-yellow-400 rounded-full animate-pulse"></div>
                         <div
                           className="w-1 h-1 bg-yellow-400 rounded-full animate-pulse"
-                          style={{ animationDelay: "0.2s" }}></div>
+                          style={{ animationDelay: "0.2s" }}
+                        ></div>
                         <div
                           className="w-1 h-1 bg-yellow-400 rounded-full animate-pulse"
-                          style={{ animationDelay: "0.4s" }}></div>
+                          style={{ animationDelay: "0.4s" }}
+                        ></div>
                       </div>
                     </div>
                   )}
 
                   <form
                     onSubmit={handleSubmit}
-                    className="flex items-center gap-2 mt-4">
+                    className="flex items-center gap-2 mt-4"
+                  >
                     <span className="text-yellow-400">
                       Nehabawankar@portfolio:~$
                     </span>
@@ -274,7 +276,8 @@ const Terminal: React.FC = () => {
                         className="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2"
                         style={{
                           transform: `translateY(-50%) translateX(calc(${input.length}ch + 0.25rem))`,
-                        }}>
+                        }}
+                      >
                         <span className="block w-[1ch] h-6 bg-green-500 animate-blink" />
                       </span>
                     </div>
@@ -297,3 +300,4 @@ const Terminal: React.FC = () => {
 };
 
 export default Terminal;
+
