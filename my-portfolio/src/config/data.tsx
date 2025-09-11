@@ -205,21 +205,20 @@ export const commands = {
             <div className="flex items-center gap-2 mb-2">
               <Code size={16} className="text-yellow-400" />
               <span className="text-yellow-400 font-semibold">
-               Money Builder
+               Async Image Proceesing
               </span>
             </div>
             <div className="text-gray-300 text-sm mb-2">
-              Built a secure and interactive income tracker with category-based logging, real-time notifications, 
-              visual analytics, and smooth user experience—powered by a full-stack architecture and clean UI/UX.
+              //Under Proceesing
             </div>
             <div className="text-xs text-gray-400 mt-4">
-              React • Spring Boot • MySQL • Spring Security with JWT Authentication
+              React • Spring Boot • MySQL • Multithreading
             </div>
           </div>
         </a>
 
         {/*<a
-          href="https://github.com/Lakshittt/PDF-Summarizer"
+          href="/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -231,9 +230,7 @@ export const commands = {
               </span>
             </div>
             <div className="text-gray-300 text-sm mb-2">
-              PDF Summarizer lets users upload PDFs, select pages, and quickly
-              generate concise summaries or answer questions using advanced NLP,
-              making it easy to extract key information from documents.
+              jhjyvfcc
             </div>
             <div className="text-xs text-gray-400 mt-4">
               Python • Streamlit • PyPDF2 • Langchain • Hugging Face
@@ -436,7 +433,7 @@ export const commands = {
     setTimeout(() => {
       const link = document.createElement("a");
       link.href =
-        "https://drive.google.com/file/d/1T3-32Y05fJH8yhh3x0hfQgfKA_qR6kIm/view?usp=drive_link";
+        "https://drive.google.com/file/d/1wlvwOhVq6i9CR6ToOeeTRC0LJNZMCOe2/view?usp=drive_link";
       link.download = "Neha_Bawankar_Resume.pdf";
       document.body.appendChild(link);
       link.click();
@@ -454,7 +451,7 @@ export const commands = {
             resume.
           </span>
           <a
-            href="https://drive.google.com/file/d/1T3-32Y05fJH8yhh3x0hfQgfKA_qR6kIm/view?usp=drive_link/edit?usp=sharing"
+            href="https://drive.google.com/file/d/1wlvwOhVq6i9CR6ToOeeTRC0LJNZMCOe2/view?usp=drive_link/edit?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
           >
