@@ -349,27 +349,6 @@ export const commands = {
           </div>
         </div>
       </div>
-      <div className="space-y-4 border border-gray-600 p-3 rounded">
-        <div>
-          <div className="text-yellow-400 font-semibold text-xl">
-            IT Trainer
-          </div>
-          <div className="text-gray-300 text-md font-semibold my-1">
-            Thinkworks Infotech , Bengaluru{" "}
-            <span className="font-medium italic text-sm">
-              • (Nov 2025 – Present)
-            </span>
-          </div>
-          <div className="text-gray-400 text-sm mt-1">
-            • Built and maintained scalable Education Web page with modern
-            frontend tech, improving data visibility and.
-            <br />
-            • Integrated RESTful APIs and optimized state management for
-            real-time UI updates.
-            <br />• Gained strong EduTech domain knowledge to align technical
-            solutions with business needs.
-          </div>
-        </div>
     </div>
   ),
 
