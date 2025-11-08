@@ -152,25 +152,25 @@ const IdCard: React.FC<IdCardProps> = ({
             <div className="space-y-3 text-sm">
               <div className="flex items-center gap-2 text-gray-300">
                 <MapPin size={14} className="text-green-500" />
-                <span>Pune, India</span>
+                <span>Bengaluru, India</span>
               </div>
               <div className="flex items-center gap-2 text-gray-300">
                 <Briefcase size={14} className="text-green-500" />
                 <span>
-                  Full Stack Developer{" "}
+                     IT Trainer{" "}
                   <a
                     href="https://castallio.com"
                     target="_blank"
                     className="hover:text-green-500"
                     onClick={(e) => e.stopPropagation()}
                     rel="noopener noreferrer">
-                    @Castallio
+                    @ThinkWorks Infotech 
                   </a>
                 </span>
               </div>
               <div className="flex items-center gap-2 text-gray-300">
                 <Code size={14} className="text-green-500" />
-                <span>React, TailwindCss, Java</span>
+                <span>Java, Python , Frontend </span>
               </div>
             </div>
 
