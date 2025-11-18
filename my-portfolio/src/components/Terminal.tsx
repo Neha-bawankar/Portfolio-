@@ -154,13 +154,13 @@ const Terminal: React.FC = () => {
   return (
     <div className="bg-black min-h-screen h-screen">
       {loaderLoading ? (
-        <ProfileIntro
+       /* <ProfileIntro
           onFinish={(name) => {
             setUsername(name);
             localStorage.setItem("username", name);
             setLoaderLoading(false);
           }}
-        />
+        />*/
       ) : (
         <div className="min-h-screen h-screen font-mono flex text-green-500 relative overflow-hidden">
           {/* Background Video */}
