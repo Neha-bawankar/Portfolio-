@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { commands } from "../config/data";
 import bgVideo from "../assets/bgVideo1.mp4";
 import IdCard from "../components/Card";
-import ProfileIntro from "../components/ProfileIntro";
+/*import ProfileIntro from "../components/ProfileIntro";*/
 import { Terminal as TerminalIcon } from "lucide-react";
 
 interface CommandOutput {
@@ -22,11 +22,11 @@ const Terminal: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const terminalRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
-  const [username, setUsername] = useState<string>(
-    localStorage.getItem("username") || ""
+  const [username] = useState<string>(
+    localStorage.getItem("username") || "Guest"
   );
   const [visitorCount, setVisitorCount] = useState<number>(0);
-  const [loaderLoading, setLoaderLoading] = useState(true);
+  /*const [loaderLoading, setLoaderLoading] = useState(true);*/
 
   // Terminal welcome message
   useEffect(() => {
@@ -153,7 +153,7 @@ const Terminal: React.FC = () => {
 
   return (
     <div className="bg-black min-h-screen h-screen">
-      {loaderLoading ? (
+      /*{loaderLoading ? (
        /* <ProfileIntro
           onFinish={(name) => {
             setUsername(name);
@@ -161,7 +161,7 @@ const Terminal: React.FC = () => {
             setLoaderLoading(false);
           }}
         />*/
-      ) : (
+      ) : (*/
         <div className="min-h-screen h-screen font-mono flex text-green-500 relative overflow-hidden">
           {/* Background Video */}
           <video
@@ -288,8 +288,9 @@ const Terminal: React.FC = () => {
             <Clock />
           </footer>
         </div>
-      )}
-    </div>
+          </div>
+      
+    
   );
 };
 
