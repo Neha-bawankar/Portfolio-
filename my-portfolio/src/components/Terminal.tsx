@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { commands } from "../config/data";
 import bgVideo from "../assets/bgVideo1.mp4";
 import IdCard from "../components/Card";
-import ProfileIntro from "../components/ProfileIntro";
+/*import ProfileIntro from "../components/ProfileIntro";*/
 import { Terminal as TerminalIcon } from "lucide-react";
 
 interface CommandOutput {
