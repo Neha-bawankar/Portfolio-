@@ -164,7 +164,7 @@ const IdCard: React.FC<IdCardProps> = ({
                     className="hover:text-green-500"
                     onClick={(e) => e.stopPropagation()}
                     rel="noopener noreferrer">
-                    @ThinkWorks Infotech 
+                    @EduCADD Learning solution  
                   </a>
                 </span>
               </div>
@@ -259,10 +259,10 @@ const IdCard: React.FC<IdCardProps> = ({
               </div>
               <div className="bg-gray-700/50 rounded p-3">
                 <div className="text-green-500 text-sm font-semibold">
-                  Leetcode
+                  Teaching
                 </div>
                 <div className="text-white text-xl font-bold">
-                  Solving questions
+                  with Learning
                 </div>
               </div>
               <div className="bg-gray-700/50 rounded p-3">
